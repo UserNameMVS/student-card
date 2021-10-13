@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
+
+import Card from './layouts/card'
+import initialPage from './components/initialPage'
+import CreateCard from './layouts/createCard'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Switch>
+        <Route path="/student" component={Card} />
+        <Route path="/createCard" component={CreateCard} />
+        <Route path="/" component={initialPage} />
+        <Redirect to="/" />
+      </Switch>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
